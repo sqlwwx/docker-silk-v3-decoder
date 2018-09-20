@@ -2,7 +2,7 @@ local _M = {}
 -- nginx.var silkId
 -- config.silkDir
 -- config.silkDecoderPath
-local config = require('silk2mp3/config')
+local config = require('silk-v3-decoder/config')
 
 function _M.getFile(fileName)
   local f = assert(io.open(fileName, 'r'))
@@ -59,8 +59,8 @@ function _M.ngxRequestBody()
   return data
 end
 
-function _M.converSilk2Mp3(silkFileName)
-  os.execute(config.silkDecoderPath.." \""..silkFileName.."\" mp3 > /dev/null 2>&1");
+function _M.converSilk(silkFileName, voiceType)
+  os.execute(config.silkDecoderPath.." \""..silkFileName.."\" "..voiceType.." > /dev/null 2>&1");
 end
 
 return _M

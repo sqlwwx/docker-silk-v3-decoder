@@ -1,4 +1,4 @@
-local utils = require('silk2mp3/utils')
+local utils = require('silk-v3-decoder/utils')
 local buildFileName = utils.buildFileName
 local fileExists = utils.fileExists
 
@@ -13,18 +13,19 @@ if ngx.var.request_method == "POST" then
     ngx.say("success")
   end
 else
-  local mp3FileName = buildFileName("mp3")
-  local mp3URI = utils.buildURI("mp3")
-  if fileExists(mp3FileName) then
-    return ngx.exec(mp3URI)
+  local voiceType = ngx.req.get_headers()["voice-type"] or "mp3"
+  local voiceFileName = buildFileName(voiceType)
+  local voiceURI = utils.buildURI(voiceType)
+  if fileExists(voiceFileName) then
+    return ngx.exec(voiceURI)
   end
   local silkFileName = buildFileName("silk")
   if not fileExists(silkFileName) then
     return ngx.exit(404);
   end
-  utils.converSilk2Mp3(silkFileName)
-  if fileExists(mp3FileName) then
-    return ngx.exec(mp3URI)
+  utils.converSilk(silkFileName, voiceType)
+  if fileExists(voiceFileName) then
+    return ngx.exec(voiceURI)
   else
     return ngx.exit(404)
   end
