@@ -7,16 +7,28 @@ sqlwwx/silk-v3-decoder
 sqlwwx/silk-v3-decoder-alinode
 ```
 
-## apis
+## start server
+
 ```
-curl -d "@test.silk" -X POST /silk/:silkId
+docker run -p 8080:80 -t sqlwwx/silk-v3-decoder
+```
+
+## apis
+
+1. upload silk
+
+```
+POST /silk/:silkId
+curl --data-binary @test.silk http://127.0.0.1:8080/silk/test
+```
+
+2. converter to mp3
+
+```
 GET /silk/:silkId  # defualt return mp3
-curl --request GET \
-  --url /silk/:silkId \
-  --header 'voice-type: wav'
-curl --request GET \
-  --url /silk/:silkId \
-  --header 'voice-type: mp3'
-GET /voice/test.silk
-GET /voice/test.mp3
+
+curl http://127.0.0.1:8080/silk/test --header 'voice-type: wav'
+curl http://127.0.0.1:8080/silk/test
+
+ffplay http://127.0.0.1:8080/silk/test
 ```
