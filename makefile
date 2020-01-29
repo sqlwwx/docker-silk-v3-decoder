@@ -2,9 +2,10 @@ VERSION ?= $(shell git describe --tags `git rev-list --tags --max-count=1` | sed
 RELEASES = patch minor major
 
 build:
-	docker build -t sqlwwx/silk-v3-decoder:latest .
+	docker build -t sqlwwx/silk-v3-decoder:$(VERSION) -t sqlwwx/silk-v3-decoder:latest .
 	docker build -f Dockerfile.alinode -t sqlwwx/silk-v3-decoder-alinode:$(VERSION) -t sqlwwx/silk-v3-decoder-alinode:latest .
 publish:
+	docker push sqlwwx/silk-v3-decoder:$(VERSION)
 	docker push sqlwwx/silk-v3-decoder
 	docker push sqlwwx/silk-v3-decoder-alinode:$(VERSION)
 	docker push sqlwwx/silk-v3-decoder-alinode:latest .
