@@ -8,7 +8,7 @@ publish:
 	docker push sqlwwx/silk-v3-decoder:$(VERSION)
 	docker push sqlwwx/silk-v3-decoder
 	docker push sqlwwx/silk-v3-decoder-alinode:$(VERSION)
-	docker push sqlwwx/silk-v3-decoder-alinode:latest .
+	docker push sqlwwx/silk-v3-decoder-alinode:latest
 
 all: build publish
 
