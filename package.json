@@ -1,0 +1,18 @@
+{
+  "name": "docker-silk-v3-decoder",
+  "version": "1.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sqlwwx/docker-silk-v3-decoder.git"
+  },
+  "author": "sqlwwx <wwx_2012@live.com> (http://wiki.lab.wuweixing.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sqlwwx/docker-silk-v3-decoder/issues"
+  },
+  "homepage": "https://github.com/sqlwwx/docker-silk-v3-decoder#readme",
+  "devDependencies": {
+    "standard-version": "^7.1.0"
+  }
+}
