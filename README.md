@@ -4,13 +4,14 @@
 ## images
 ```
 sqlwwx/silk-v3-decoder
+sqlwwx/silk-v3-decoder-openresty
 sqlwwx/silk-v3-decoder-alinode
 ```
 
 ## start server
 
 ```
-docker run -p 8080:80 -t sqlwwx/silk-v3-decoder
+docker run -p 8080:80 -t sqlwwx/silk-v3-decoder-openresty
 ```
 
 ## apis
