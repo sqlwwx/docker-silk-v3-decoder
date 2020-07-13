@@ -13,6 +13,6 @@
   },
   "homepage": "https://github.com/sqlwwx/docker-silk-v3-decoder#readme",
   "devDependencies": {
-    "standard-version": "^7.1.0"
+    "standard-version": "^8.0.1"
   }
 }
